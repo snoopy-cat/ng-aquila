@@ -156,6 +156,7 @@ $mobile-body-padding: nx-spacer(m) nx-spacer(s) nx-spacer(2m) nx-spacer(s);
       &:last-child,
       &:only-child {
         box-shadow: 0 1px 0 0 windowText;
+        border-bottom: 1px solid CanvasText;
       }
     }
   }
