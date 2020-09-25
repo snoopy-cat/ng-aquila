@@ -216,46 +216,50 @@ $checkbox-size: nx-spacer(m);
 // high contrast mode
 // sass-lint:disable no-vendor-prefixes
 @media screen and (-ms-high-contrast: active) {
-  .nx-checkbox__input + .nx-checkbox__label .nx-checkbox__control {
-    border-color: buttonText;
-    background-color: buttonFace;
-  }
-
-  .nx-checkbox__input + .nx-checkbox__label .nx-checkbox__label-text {
-    color: buttonText;
-  }
-
-  .nx-checkbox__input:checked + .nx-checkbox__label .nx-checkbox__control {
-    background-color: highlight;
-    border-color: highlight;
-
-    nx-icon {
-      color: highlightText;
+  :host,
+  :host.nx-checkbox--negative,
+  :host:not(.nx-checkbox--negative):not(.has-error):hover {
+    .nx-checkbox__input:not([disabled]) + .nx-checkbox__label .nx-checkbox__control {
+      border-color: buttonText;
+      background-color: buttonFace;
     }
-  }
 
-  .nx-checkbox__input:indeterminate + .nx-checkbox__label .nx-checkbox__indeterminate-indicator {
-    color: buttonText;
-  }
+    .nx-checkbox__input:not([disabled]) + .nx-checkbox__label .nx-checkbox__label-text {
+      color: buttonText;
+    }
 
-  .nx-checkbox__input:disabled + .nx-checkbox__label .nx-checkbox__label-text,
-  .nx-checkbox__input:disabled + .nx-checkbox__label .nx-checkbox__control nx-icon {
-    color: GrayText;
-  }
+    .nx-checkbox__input:not([disabled]):checked + .nx-checkbox__label .nx-checkbox__control {
+      background-color: highlight;
+      border-color: highlight;
 
-  .nx-checkbox__input:disabled:indeterminate + .nx-checkbox__label .nx-checkbox__indeterminate-indicator {
-    color: GrayText;
-  }
+      nx-icon {
+        color: highlightText;
+      }
+    }
 
-  .nx-checkbox__input:disabled + .nx-checkbox__label .nx-checkbox__control {
-    border-color: GrayText;
-  }
+    .nx-checkbox__input:indeterminate + .nx-checkbox__label .nx-checkbox__indeterminate-indicator {
+      color: buttonText;
+    }
 
-  .nx-checkbox__input:disabled:checked + .nx-checkbox__label .nx-checkbox__control {
-    background-color: buttonFace;
-
-    nx-icon {
+    .nx-checkbox__input:disabled + .nx-checkbox__label .nx-checkbox__label-text,
+    .nx-checkbox__input:disabled + .nx-checkbox__label .nx-checkbox__control nx-icon {
       color: GrayText;
+    }
+
+    .nx-checkbox__input:disabled:indeterminate + .nx-checkbox__label .nx-checkbox__indeterminate-indicator {
+      color: GrayText;
+    }
+
+    .nx-checkbox__input:disabled + .nx-checkbox__label .nx-checkbox__control {
+      border-color: GrayText;
+    }
+
+    .nx-checkbox__input:disabled:checked + .nx-checkbox__label .nx-checkbox__control {
+      background-color: buttonFace;
+
+      nx-icon {
+        color: GrayText;
+      }
     }
   }
 }
