@@ -79,6 +79,12 @@ $padding-bottom: nx-spacer(2xs) - nx-border-size(m);
     .nx-tab-header__item:focus {
       @include focus-style;
       border-radius: nx-border-radius(s);
+
+      @media screen and (-ms-high-contrast: active) {
+        // hide doubled box-shadow + outline for edge chromium
+        // (both visible there because of high-contrast-adjust: none)
+        outline-width: 0px; 
+      }
     }
   }
 
@@ -86,6 +92,12 @@ $padding-bottom: nx-spacer(2xs) - nx-border-size(m);
     .nx-tab-header__item:focus .nx-tab-label__content {
       @include focus-style;
       border-radius: nx-border-radius(s);
+
+      @media screen and (-ms-high-contrast: active) {
+        // hide doubled box-shadow + outline for edge chromium
+        // (both visible there because of high-contrast-adjust: none)
+        outline-width: 0px; 
+      }
     }
   }
 }
