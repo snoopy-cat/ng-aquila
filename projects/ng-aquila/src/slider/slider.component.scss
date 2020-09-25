@@ -266,6 +266,7 @@ $wrapper-padding-bottom: (($handle-diameter - $background-height) * 0.5) + nx-sp
     .nx-slider__value {
       border-color: GrayText;
       color: GrayText;
+      background: Canvas;
     }
 
     .nx-slider__arrow {
