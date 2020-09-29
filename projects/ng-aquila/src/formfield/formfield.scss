@@ -59,6 +59,10 @@ $outline-padding: 7px;
   @include var(height, formfield-control-height);
   flex: auto;
   @include var(padding, formfield-input-padding);
+
+  @media screen and (-ms-high-contrast: active) {
+    border-bottom-color: buttonText; 
+  }
 }
 
 .nx-formfield__input {
@@ -148,6 +152,10 @@ $outline-padding: 7px;
     margin-right: nx-spacer(2xs);
     margin-left: initial;
   }
+
+  @media screen and (-ms-high-contrast: active) {
+    border-bottom-color: Canvas;
+  }
 }
 
 .nx-formfield__prefix {
@@ -197,6 +205,10 @@ $outline-padding: 7px;
   // ensure all icons gets colored blueish.
   .nx-formfield__appendix nx-icon {
     @include var(color, formfield-active-color);
+
+    @media screen and (-ms-high-contrast: active) {
+      color: buttonText;
+    }
   }
 }
 
@@ -214,6 +226,10 @@ $outline-padding: 7px;
 
   .nx-formfield__input-container {
     @include var(border-bottom-color, formfield-active-border-color);
+
+    @media screen and (-ms-high-contrast: active) {
+      border-bottom-color: highlight;
+    }
   }
 
   // overwrite with white to maintain contrast
@@ -226,6 +242,10 @@ $outline-padding: 7px;
 .nx-formfield:not(.nx-formfield--negative):not(.has-error):not(.is-disabled):not(.is-focused):not(.has-outline) {
   .nx-formfield__row:hover .nx-formfield__input-container {
     @include var(border-bottom-color, formfield-hover-border-color);
+
+    @media screen and (-ms-high-contrast: active) {
+      border-bottom-color: buttonText;
+    }
   }
 }
 
@@ -234,11 +254,19 @@ $outline-padding: 7px;
   .nx-formfield__input-container {
     @include var(border-color, formfield-outline-active-border-color);
     @include formfield-outline-focus-styles;
+
+    @media screen and (-ms-high-contrast: active) {
+      border-color: buttonText;
+    }
   }
 
   &.has-error {
     .nx-formfield__input-container {
       @include var(border-bottom-color, danger);
+
+      @media screen and (-ms-high-contrast: active) {
+        border-bottom-color: buttonText;
+      }
     }
   }
 }
@@ -272,6 +300,10 @@ $outline-padding: 7px;
     border-style: solid;
     border-radius: nx-border-radius(s);
     @include var(height, formfield-outline-control-height);
+
+    @media screen and (-ms-high-contrast: active) {
+      border-color: buttonText;
+    }
   }
 
   input, nx-dropdown .nx-dropdown__container {
@@ -315,6 +347,11 @@ $outline-padding: 7px;
       margin-left: initial;
       margin-right: nx-spacer(2xs);
     }
+
+    @media screen and (-ms-high-contrast: active) {
+      border-top-color: Canvas;
+      border-bottom-color: Canvas;
+    }
   }
 
   .nx-formfield__hints {
@@ -346,6 +383,10 @@ $outline-padding: 7px;
   .nx-formfield__input-container {
     @include var(border-color, formfield-readonly-border-color);
     @include var(background-color, formfield-readonly-background-color);
+
+    @media screen and (-ms-high-contrast: active) {
+      border-color: buttonText;
+    }
   }
 }
 
@@ -411,6 +452,10 @@ $outline-padding: 7px;
 
   .nx-formfield__input-container {
     @include var(border-bottom-color, danger);
+
+    @media screen and (-ms-high-contrast: active) {
+      border-bottom-color: buttonText;
+    }
   }
 
   &.is-floating {
@@ -424,6 +469,10 @@ $outline-padding: 7px;
 
     .nx-formfield__input-container {
       @include var(border-color, danger);
+
+      @media screen and (-ms-high-contrast: active) {
+        border-color: buttonText;
+      }
     }
   }
 }
@@ -434,16 +483,33 @@ $outline-padding: 7px;
   @include var(-webkit-text-fill-color, formfield-disabled-text-color);
   cursor: not-allowed;
 
+  @media screen and (-ms-high-contrast: active) {
+    color: GrayText;
+    -webkit-text-fill-color: GrayText;
+  }
+
   .nx-formfield__hints {
     color: inherit;
+
+    @media screen and (-ms-high-contrast: active) {
+      color: GrayText;
+    }
   }
 
   .nx-formfield__input-container {
     @include var(border-bottom-color, formfield-disabled-border-color);
+
+    @media screen and (-ms-high-contrast: active) {
+      border-bottom-color: GrayText;
+    }
   }
 
   &.has-outline .nx-formfield__input-container {
     @include var(border-color, formfield-disabled-border-color);
+
+    @media screen and (-ms-high-contrast: active) {
+      border-color: GrayText;
+    }
   }
 
   nx-datepicker-toggle button {
@@ -469,10 +535,18 @@ $outline-padding: 7px;
   // this has currently no effect on the outline elements, so the next block for .has-outline is needed
   .nx-formfield__input-container {
     @include var(border-color, negative);
+
+    @media screen and (-ms-high-contrast: active) {
+      border-color: buttonText;
+    }
   }
 
   &.has-outline .nx-formfield__input-container {
     @include var(border-color, negative);
+
+    @media screen and (-ms-high-contrast: active) {
+      border-color: buttonText;
+    }
   }
 
   .nx-formfield__appendix,
@@ -494,51 +568,6 @@ $outline-padding: 7px;
 
 .nx-formfield__input textarea[nxInput] {
   vertical-align: bottom;
-}
-
-// HIGH CONTRAST
-@media screen and (-ms-high-contrast: active) {
-  .nx-formfield__input-container {
-    border-bottom-color: buttonText;
-  }
-
-  .nx-formfield.has-outline {
-    .nx-formfield__input-container {
-      border-color: buttonText;
-    }
-
-    .nx-formfield__appendix {
-      border-bottom-color: window;
-      border-top-color: window;
-    }
-  }
-
-  .nx-formfield.is-disabled {
-    color: GrayText;
-    -webkit-text-fill-color: GrayText;
-
-    .nx-formfield__input-container {
-      border-bottom-color: GrayText;
-    }
-
-    .nx-formfield__hints {
-      color: windowText;
-    }
-
-    &.has-outline .nx-formfield__input-container {
-      border-color: GrayText;
-    }
-  }
-
-  .nx-formfield.is-focused:not(.has-outline) .nx-formfield__input-container {
-    border-bottom-color: highlight;
-  }
-
-  .nx-formfield:not(.nx-formfield--negative) {
-    .nx-formfield__appendix nx-icon {
-      color: inherit;
-    }
-  }
 }
 
 .nx-formfield--type-textarea {
